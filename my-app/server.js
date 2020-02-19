@@ -7,9 +7,9 @@ app.use(express.json())
 app.use(cors())
 
 var friends = [
-  { id: uuid(), fname: 'Blake', lname: 'Lower', married: false },
-  { id: uuid(), fname: 'Jaimie', lname: 'Foy', married: false },
-  { id: uuid(), fname: 'Nora', lname: 'Vasconcellos', married: false },
+  { id: uuid(), fname: 'Blake', lname: 'Lower', skater: false },
+  { id: uuid(), fname: 'Jaimie', lname: 'Foy', skater: false },
+  { id: uuid(), fname: 'Nora', lname: 'Vasconcellos', skater: false },
 ]
 
 app.get('/api/friends', (req, res) => {
@@ -19,7 +19,7 @@ app.get('/api/friends', (req, res) => {
 })
 
 app.post('/api/friends', (req, res) => {
-  if (req.body.fname && req.body.lname && (typeof req.body.married === 'boolean')) {
+  if (req.body.fname && req.body.lname && (typeof req.body.skater === 'boolean')) {
     const newFriend = { id: uuid(), ...req.body }
     friends.push(newFriend)
     setTimeout(() => {
@@ -42,7 +42,7 @@ app.delete('/api/friends/:id', (req, res) => {
 })
 
 app.put('/api/friends/:id', (req, res) => {
-  if (req.body.fname && req.body.lname && (typeof req.body.married === 'boolean')) {
+  if (req.body.fname && req.body.lname && (typeof req.body.skater === 'boolean')) {
     if (friends.find(fr => fr.id === req.params.id)) {
       friends = friends.map(fr => {
         if (fr.id === req.params.id) {
