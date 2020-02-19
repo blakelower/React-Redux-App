@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import * as actionCreators from './state/actionCreators'
 import './App.css'
+import skate from './images/skate.gif';
 
 function App({
   // PROPS COME IN SEVERAL FLAVORS:
@@ -49,7 +50,7 @@ function App({
   // }
 
   return (
-    <div className="App">
+    <div className="dtc v-mid cover ph3 ph4-m ph5-l no-repeat center right;background-size: cover" style={{backgroundImage: `url(${skate})`}}>
       {/* here we can add a new friend */}
       <h4>Add a new skater <span>🛹</span></h4>
       <form className='form'  onSubmit={onSubmit}>
@@ -71,7 +72,7 @@ function App({
 
         <input class="f6 link dim br3 ph3 pv2 mb2 dib white bg-dark-blue" type='submit' />
       </form>
-
+      
       {/* list of current friends */}
       <h4>The Skaters</h4>
       {
